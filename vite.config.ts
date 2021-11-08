@@ -14,8 +14,19 @@ import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import Prism from 'markdown-it-prism'
 import LinkAttributes from 'markdown-it-link-attributes'
+import attrs from 'markdown-it-attrs'
+import { containerPlugin } from './markdown/plugins/containers'
+import { demoPlugin } from './markdown/plugins/demo'
+import { lineNumberPlugin } from './markdown/plugins/lineNumbers'
+import { preWrapperPlugin } from './markdown/plugins/preWrapper'
 
-const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
+import { highlight } from './markdown/plugins/highlight'
+import { componentPlugin } from './markdown/plugins/component'
+import { snippetPlugin } from './markdown/plugins/snippet'
+import { hoistPlugin } from './markdown/plugins/hoist'
+import { highlightLinePlugin } from './markdown/plugins/highlightLines'
+
+const markdownWrapperClasses = 'prose m-auto text-left'
 
 export default defineConfig({
   resolve: {
@@ -82,12 +93,45 @@ export default defineConfig({
     // https://github.com/antfu/vite-plugin-md
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
     Markdown({
-      wrapperClasses: markdownWrapperClasses,
+      wrapperClasses: `${markdownWrapperClasses} markdown-wrapper`,
       headEnabled: true,
+      markdownItOptions: {
+        html: true,
+        xhtmlOut: true,
+        linkify: true,
+        highlight,
+        typographer: true,
+      },
+      markdownItUses: [
+        // [demoPlugin, {}],
+        // [componentPlugin, {}],
+        // [highlightLinePlugin, {}],
+        // [attrs],
+        // [preWrapperPlugin, {}],
+        /* [hoistPlugin, {}], */
+        // [snippetPlugin, { root: '.' }],
+        // [lineNumberPlugin, {}],
+        // [containerPlugin, {}],
+      ],
       markdownItSetup(md) {
+        md.use(highlightLinePlugin)
+        md.use(demoPlugin, { path: './src/components/' })
+        md.use(preWrapperPlugin)
+        md.use(attrs)
+        // md.use(highlightLinePlugin)
+        // @ts-expect-error types mismatch
+        // md.use(containerPlugin)
+        // @ts-expect-error types mismatch
+        // md.use(demoPlugin)
         // https://prismjs.com/
         // @ts-expect-error types mismatch
+        md.use(componentPlugin)
+
         md.use(Prism)
+        // @ts-expect-error types mismatch
+        // md.use(preWrapperPlugin)
+        // @ts-expect-error types mismatch
+        md.use(lineNumberPlugin)
         // @ts-expect-error types mismatch
         md.use(LinkAttributes, {
           pattern: /^https?:\/\//,

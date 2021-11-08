@@ -12,7 +12,15 @@ declare module 'vue' {
     CarbonPedestrian: typeof import('~icons/carbon/pedestrian')['default']
     CarbonSun: typeof import('~icons/carbon/sun')['default']
     CarbonWarning: typeof import('~icons/carbon/warning')['default']
+    Code: typeof import('./components/Demo/icons/code.vue')['default']
+    CodepenIcon: typeof import('./components/Demo/OnlineEdit/icons/CodepenIcon.vue')['default']
+    CodeSandboxIcon: typeof import('./components/Demo/OnlineEdit/icons/CodeSandboxIcon.vue')['default']
+    Copy: typeof import('./components/Demo/icons/copy.vue')['default']
+    Debug: typeof import('./components/Debug.vue')['default']
+    Demo: typeof import('./components/Demo/demo.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']
+    JsfiddleIcon: typeof import('./components/Demo/OnlineEdit/icons/JsfiddleIcon.vue')['default']
+    OnlineEdit: typeof import('./components/Demo/OnlineEdit/OnlineEdit.vue')['default']
     README: typeof import('./components/README.md')['default']
   }
 }
