@@ -13,7 +13,7 @@ title: About
 非常棒
 :::
 
-```html {1-2 | 4-5 | 8-9}
+```html {1,3,6-7, 9-10,13}
 <script setup lang="ts">
 import { isDark, toggleDark } from '~/composables'
 

@@ -17,10 +17,10 @@ export const highlightLinePlugin = (md: MarkdownIt) => {
     const attrs = token.attrs || []
     const lineNumbers = attrs.map((attr) => {
       return attr[0]
-    }).join('').split('|').map((v) => {
+    }).join('').split(',').map((v) => {
       return v.split('-').map(v => parseInt(v, 10))
     })
-    console.log('linesStr', lineNumbers)
+    console.log('linesStr', token.attrs, lineNumbers)
 
     const lines = attr[0]
     if (!lines || !/[\d,-]+/.test(lines))
