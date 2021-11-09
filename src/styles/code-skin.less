@@ -266,3 +266,18 @@ html .markdown-wrapper{
     }
   }
 }
+
+@media screen and (max-width: 750px) {
+  .line-numbers-mode  {
+    &::after{
+      display: none;
+    }
+    pre{
+      margin-left: 0!important;
+    }
+  }
+  .line-numbers-wrapper{
+    display: none;
+    
+  }
+}
