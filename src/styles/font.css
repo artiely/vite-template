@@ -1,0 +1,96 @@
+
+@font-face {
+  font-family: 'Artiely';
+  src: url('../font/Artiely.woff2') format('woff2');
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Semi';
+  src: url('../font/SourceHanSerifCN-SemiBold.woff2') format('woff2');
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'TJ2';
+  src: url('../font/SansWeb2-cn.woff2') format('woff2');
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'TJ3';
+  src: url('../font/tj3.woff2') format('woff2');
+  font-display: fallback;
+}
+@font-face {
+  font-family: TJ;
+  font-style: normal;
+  src: url('../font/DINPro-Medium.ttf');
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'MicrosoftYaqiHeiLight';
+  src: url('../font/MicrosoftYaqiHeiLight.ttf');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Consolas';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../font/consola.woff2')format('woff2');
+  font-display: fallback;
+}
+
+/* vietnamese */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Josefin Sans Light'), local('JosefinSans-Light'), url('../font/Qw3FZQNVED7rKGKxtqIqX5Ecpl5tdF0hspo.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+  font-display: fallback;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Josefin Sans Light'), local('JosefinSans-Light'), url('../font/Qw3FZQNVED7rKGKxtqIqX5Ecpl5tdV0hspo.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  font-display: fallback;
+}
+/* latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Josefin Sans Light'), local('JosefinSans-Light'), url('../font/Qw3FZQNVED7rKGKxtqIqX5Ecpl5te10h.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-display: fallback;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Josefin Sans Regular'), local('JosefinSans-Regular'), url('../font/Qw3aZQNVED7rKGKxtqIqX5EUAnx4RHw.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+  font-display: fallback;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Josefin Sans Regular'), local('JosefinSans-Regular'), url('../font/Qw3aZQNVED7rKGKxtqIqX5EUA3x4RHw.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  font-display: fallback;
+}
+/* latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Josefin Sans Regular'), local('JosefinSans-Regular'), url('../font/Qw3aZQNVED7rKGKxtqIqX5EUDXx4.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-display: fallback;
+}
+

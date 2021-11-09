@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import MarkdownIt from 'markdown-it'
 import { highlight } from './highlight'
-interface params{ path: string }
+interface params{ path: string; component: boolean }
 export const demoPlugin = (md: MarkdownIt, params: params) => {
   const RE = /<Demo /i
   md.renderer.rules.html_block = (tokens, idx) => {
@@ -25,6 +25,16 @@ export const demoPlugin = (md: MarkdownIt, params: params) => {
       const htmlStr = encodeURIComponent(highlight(codeStr, language || 'vue'))
       const pathArr = absolutePath.split('/')
       const componentName = pathArr[pathArr.length - 1].split('.vue')[0]
+      if (params.component) {
+        return content.replace(
+          '>',
+          ` componentName="${componentName}" htmlStr="${htmlStr}" codeStr="${encodeURIComponent(
+            codeStr,
+          )}">
+          <${componentName}></${componentName}>
+          `,
+        )
+      }
       return `<div class="demo-component"><${componentName}></${componentName}></div><div class="demo">${decodeURIComponent(htmlStr)}</div>`
     }
     else {

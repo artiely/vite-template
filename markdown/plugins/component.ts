@@ -21,11 +21,11 @@ const HTML_SEQUENCES: [RegExp, RegExp, boolean][] = [
   // custom elements with hyphens
   [/^<\w+\-/, />/, true],
   [
-    new RegExp('^</?(' + blockNames.join('|') + ')(?=(\\s|/?>|$))', 'i'),
+    new RegExp(`^</?(${blockNames.join('|')})(?=(\\s|/?>|$))`, 'i'),
     /^$/,
-    true
+    true,
   ],
-  [new RegExp(HTML_OPEN_CLOSE_TAG_RE.source + '\\s*$'), /^$/, false]
+  [new RegExp(`${HTML_OPEN_CLOSE_TAG_RE.source}\\s*$`), /^$/, false],
 ]
 
 export const componentPlugin = (md: MarkdownIt) => {
@@ -38,29 +38,24 @@ const htmlBlock: RuleBlock = (state, startLine, endLine, silent): boolean => {
   let max = state.eMarks[startLine]
 
   // if it's indented more than 3 spaces, it should be a code block
-  if (state.sCount[startLine] - state.blkIndent >= 4) {
+  if (state.sCount[startLine] - state.blkIndent >= 4)
     return false
-  }
 
-  if (!state.md.options.html) {
+  if (!state.md.options.html)
     return false
-  }
 
-  if (state.src.charCodeAt(pos) !== 0x3c /* < */) {
+  if (state.src.charCodeAt(pos) !== 0x3C /* < */)
     return false
-  }
 
   lineText = state.src.slice(pos, max)
 
   for (i = 0; i < HTML_SEQUENCES.length; i++) {
-    if (HTML_SEQUENCES[i][0].test(lineText)) {
+    if (HTML_SEQUENCES[i][0].test(lineText))
       break
-    }
   }
 
-  if (i === HTML_SEQUENCES.length) {
+  if (i === HTML_SEQUENCES.length)
     return false
-  }
 
   if (silent) {
     // true if this sequence can be a terminator, false otherwise
@@ -73,9 +68,8 @@ const htmlBlock: RuleBlock = (state, startLine, endLine, silent): boolean => {
   // Let's roll down till block end.
   if (!HTML_SEQUENCES[i][1].test(lineText)) {
     for (; nextLine < endLine; nextLine++) {
-      if (state.sCount[nextLine] < state.blkIndent) {
+      if (state.sCount[nextLine] < state.blkIndent)
         break
-      }
 
       pos = state.bMarks[nextLine] + state.tShift[nextLine]
       max = state.eMarks[nextLine]

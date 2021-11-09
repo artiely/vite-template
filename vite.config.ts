@@ -115,12 +115,12 @@ export default defineConfig({
       ],
       markdownItSetup(md) {
         md.use(highlightLinePlugin)
-        md.use(demoPlugin, { path: './src/components/' })
+        md.use(demoPlugin, { path: './src/components/', component: true })
         md.use(preWrapperPlugin)
         md.use(attrs)
         // md.use(highlightLinePlugin)
         // @ts-expect-error types mismatch
-        // md.use(containerPlugin)
+        md.use(containerPlugin)
         // @ts-expect-error types mismatch
         // md.use(demoPlugin)
         // https://prismjs.com/

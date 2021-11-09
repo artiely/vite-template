@@ -9,18 +9,16 @@ export const snippetPlugin = (md: MarkdownIt, root: string) => {
     const max = state.eMarks[startLine]
 
     // if it's indented more than 3 spaces, it should be a code block
-    if (state.sCount[startLine] - state.blkIndent >= 4) {
+    if (state.sCount[startLine] - state.blkIndent >= 4)
       return false
-    }
 
     for (let i = 0; i < 3; ++i) {
       const ch = state.src.charCodeAt(pos + i)
       if (ch !== CH || pos + i >= max) return false
     }
 
-    if (silent) {
+    if (silent)
       return true
-    }
 
     const start = pos + 3
     const end = state.skipSpacesBack(max, pos)
@@ -28,9 +26,10 @@ export const snippetPlugin = (md: MarkdownIt, root: string) => {
     const filename = rawPath.split(/{/).shift()!.trim()
     const content = fs.existsSync(filename)
       ? fs.readFileSync(filename).toString()
-      : 'Not found: ' + filename
+      : `Not found: ${filename}`
     const meta = rawPath.replace(filename, '')
 
+    console.log('🚀 ~ file: snippet.ts ~ line 35 ~ snippetPlugin ~ state.line', state.line)
     state.line = startLine + 1
 
     const token = state.push('fence', 'code', 0)
